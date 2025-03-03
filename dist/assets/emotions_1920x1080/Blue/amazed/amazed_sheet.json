@@ -1,0 +1,231 @@
+{
+  "frames": {
+    "amazed_03.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 45,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 8,
+        "w": 45,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "amazed_04.png": {
+      "frame": {
+        "x": 45,
+        "y": 0,
+        "w": 44,
+        "h": 43
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 8,
+        "w": 44,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "amazed_05.png": {
+      "frame": {
+        "x": 0,
+        "y": 42,
+        "w": 44,
+        "h": 43
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 8,
+        "w": 44,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "amazed_02.png": {
+      "frame": {
+        "x": 89,
+        "y": 0,
+        "w": 44,
+        "h": 37
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 9,
+        "w": 44,
+        "h": 37
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "amazed_06.png": {
+      "frame": {
+        "x": 133,
+        "y": 0,
+        "w": 42,
+        "h": 41
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 9,
+        "w": 42,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "amazed_01.png": {
+      "frame": {
+        "x": 89,
+        "y": 37,
+        "w": 41,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 11,
+        "w": 41,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "amazed_00.png": {
+      "frame": {
+        "x": 44,
+        "y": 43,
+        "w": 41,
+        "h": 30
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 12,
+        "w": 41,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "amazed_07.png": {
+      "frame": {
+        "x": 44,
+        "y": 73,
+        "w": 40,
+        "h": 39
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 10,
+        "w": 40,
+        "h": 39
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "amazed_08.png": {
+      "frame": {
+        "x": 0,
+        "y": 85,
+        "w": 40,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 11,
+        "w": 40,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 61
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "amazed_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 175,
+      "h": 123
+    },
+    "scale": 1
+  }
+}
