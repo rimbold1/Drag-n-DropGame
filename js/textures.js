@@ -12,4 +12,15 @@ export const gameTextures = {
      8: await Assets.load('assets/container_violet_orange.png'),
      9: await Assets.load('assets/container_violet.png')
      
-}
+};
+
+
+export const emotionsTextures = {
+
+     1: await Assets.load('assets/Jelly_blue.png'), // Blue
+     2: await Assets.load('assets/Jelly_orange.png'), // Orange
+     3: await Assets.load('assets/Jelly_green.png'), // Green
+     4: await Assets.load('assets/Jelly_red.png'), // Red
+     5: await Assets.load('assets/Jelly_violet.png') // Violet
+
+};

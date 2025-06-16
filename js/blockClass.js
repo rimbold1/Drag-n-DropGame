@@ -1,12 +1,11 @@
 import { Container, Sprite } from "pixi.js";
-import { gameTextures } from "./textures";
+import { emotionsTextures } from "./textures";
 
 export class Block extends Container{
-    constructor() {
+    constructor(texture) {
         super()
 
-        const columndTexture = gameTextures[2];
-        const containerSprite = new Sprite(columndTexture);
+        const containerSprite = new Sprite(emotionsTextures[texture]);
         containerSprite.anchor.set(0.5);
 
         this.addChild(containerSprite);
