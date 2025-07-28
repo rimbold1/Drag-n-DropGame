@@ -1,6 +1,6 @@
-import { Application, Container, Sprite } from 'pixi.js';
+import { Application, Container, Sprite, AnimatedSprite } from 'pixi.js';
 import { Column } from './columnClass.js';
-import { gameTextures, emotionsTextures } from './textures.js';
+import { gameTextures, pointerTextures, blueAmazedAnim, violetAmazedAnim, blinkingSmileViolet, blinkingAnimTextures } from './textures.js';
 import { Block } from './blockClass.js';
 
 // Asynchronous IIFE
@@ -22,6 +22,11 @@ import { Block } from './blockClass.js';
 	const blockContainer = new Container();
 	const leftSideContainer = new Container();
 	const blocks = new Container();
+	const hand_end = new Sprite(pointerTextures[1]); // спрайт руки (курсор).
+	
+	
+	hand_end.eventMode = 'none';
+	// columnContainer.eventMode = 'passive';
 
 	app.stage.addChild(gameContainer);
 	gameContainer.addChild(background, leftSideContainer, columnContainer);
@@ -41,7 +46,18 @@ import { Block } from './blockClass.js';
 	downloadButton.x = 490;
 	downloadButton.y = gameContainer.height * 0.45;
 	downloadButton.eventMode = "static";
-	downloadButton.cursor = "pointer";
+	
+	app.canvas.style.cursor = 'none';
+	app.stage.eventMode = 'static';
+	app.stage.addChild(hand_end);
+
+	app.stage.on('globalmousemove', (e) => {
+		hand_end.position.copyFrom(e.global);
+	});
+	hand_end.zIndex = 1000;
+	// hand_end.anchor.set(0.15);
+	hand_end.scale.set(0.2);
+	
 
 	downloadButton.on("pointerdown", () => {
 		alert("Sprite clicked!");
@@ -59,27 +75,62 @@ import { Block } from './blockClass.js';
 	const levelMap = [
 		[3, 3, 2, 2, 2, 1, 1, 4, 4, 4, 2, 2, 2, 5, 5, 5],
 		[4, 4, 1, 1, 4, 5, 5, 5, 3, 3, 2, 5, 5, 3, 3, 3],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[],
 		[1, 1, 2, 4, 4, 2, 3, 3, 2, 1, 1, 2, 2, 5, 5, 3],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[],
 		[4, 4, 2, 2, 4, 1, 1, 1, 4, 4, 4, 1, 5, 5, 5, 3],
 		[1, 1, 2, 4, 4, 3, 1, 1, 5, 5, 2, 3, 3, 3, 5, 3]
 	];
 
 	let xPos = 0;
+	
 
 	for (let i = 0; i < levelMap.length; i++) {
+
 		let column = new Column();
-		column.x += xPos;
-		xPos += 90;
+		column.eventMode = "static";
+		column.x = xPos;
+		column.cursor = 'pointer';
+		xPos += 99;
 		columnContainer.addChild(column);
+		let blockY = column.height/2 - 60;
+		
 		for (let j = 0; j < levelMap[i].length; j++) {
-			
+			let block = new Block(levelMap[i][j], levelMap[i][j], levelMap[i][j], levelMap[i][j]);
+			block.y = blockY;
+			column.addChild(block);
+			column.blocks.push(block);
+			blockY -= 55;
 		}
-	}
 
+		let counter = 1;
+		let clickedStatus = false;
+		let sameBlocksArray = [];
 
-
-	// columnContainer.addChild(blockContainer);
-	
+		column.on('pointerdown', () => {
+			
+			let lastBlocksElement = column.blocks[column.blocks.length - 1];
+			// lastBlocksElement.emotionAnimation.visible = true;
+			// lastBlocksElement.emotionAnimation.play();
+			clickedStatus = true;
+			for (let i = column.blocks.length - 2; i >= 0 ; i--) {
+				const block = column.blocks[i];
+				// block.emotionAnimation.visible = true;
+				// block.emotionAnimation.play();
+				if (block.id != lastBlocksElement.id) {
+					lastBlocksElement.auraSprite.visible = true;
+					lastBlocksElement.visible = true;
+					lastBlocksElement.emotionAnimation.visible = true;
+					lastBlocksElement.emotionAnimation.play();
+					break;
+				}else if (block.id === lastBlocksElement.id) {
+					lastBlocksElement.auraSprite.visible = true;
+					block.auraSprite.visible = true;
+					lastBlocksElement.emotionAnimation.visible = true;
+					lastBlocksElement.emotionAnimation.play();
+				}
+			}
+			
+		});
+	};
 })();

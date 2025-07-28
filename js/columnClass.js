@@ -8,6 +8,8 @@ export class Column extends Container{
         const columnTexture = gameTextures[2];
         const containerSprite = new Sprite(columnTexture);
         containerSprite.anchor.set(0.5);
+
+        this.blocks = [];
  
         this.addChild(containerSprite);
     }
