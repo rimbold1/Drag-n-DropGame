@@ -106,31 +106,30 @@ import { Block } from './blockClass.js';
 		let counter = 1;
 		let clickedStatus = false;
 		let sameBlocksArray = [];
-
 		column.on('pointerdown', () => {
-			
-			let lastBlocksElement = column.blocks[column.blocks.length - 1];
-			// lastBlocksElement.emotionAnimation.visible = true;
-			// lastBlocksElement.emotionAnimation.play();
+		if (column.blocks.length <= 0) return;
+
+			const lastBlocksElement = column.blocks[column.blocks.length - 1];
+			const targetId = lastBlocksElement.id;
+
+			// Анімація тільки для останнього (як базова)
+			lastBlocksElement.emotionAnimation.visible = true;
+			lastBlocksElement.emotionAnimation.play();
+			lastBlocksElement.auraSprite.visible = true;
+			lastBlocksElement.visible = true;
 			clickedStatus = true;
-			for (let i = column.blocks.length - 2; i >= 0 ; i--) {
+
+			// Анімація інших тільки якщо ID збігається
+			for (let i = column.blocks.length - 2; i >= 0; i--) {
 				const block = column.blocks[i];
-				// block.emotionAnimation.visible = true;
-				// block.emotionAnimation.play();
-				if (block.id != lastBlocksElement.id) {
-					lastBlocksElement.auraSprite.visible = true;
-					lastBlocksElement.visible = true;
-					lastBlocksElement.emotionAnimation.visible = true;
-					lastBlocksElement.emotionAnimation.play();
-					break;
-				}else if (block.id === lastBlocksElement.id) {
-					lastBlocksElement.auraSprite.visible = true;
+				if (block.id === targetId) {
+					block.emotionAnimation.visible = true;
+					block.emotionAnimation.play();
 					block.auraSprite.visible = true;
-					lastBlocksElement.emotionAnimation.visible = true;
-					lastBlocksElement.emotionAnimation.play();
+				} else {
+					break; // перериваємо, якщо зустріли інший ID
 				}
 			}
-			
 		});
 	};
 })();
