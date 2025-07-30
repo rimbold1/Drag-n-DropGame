@@ -105,31 +105,48 @@ import { Block } from './blockClass.js';
 
 		let counter = 1;
 		let clickedStatus = false;
-		let sameBlocksArray = [];
-		column.on('pointerdown', () => {
-		if (column.blocks.length <= 0) return;
+		let lastClickedColumn = null;
 
-			const lastBlocksElement = column.blocks[column.blocks.length - 1];
-			const targetId = lastBlocksElement.id;
+		function onColumnClick(event) {
+			const clickedColumn = event.currentTarget;
 
-			// Анімація тільки для останнього (як базова)
-			lastBlocksElement.emotionAnimation.visible = true;
-			lastBlocksElement.emotionAnimation.play();
-			lastBlocksElement.auraSprite.visible = true;
-			lastBlocksElement.visible = true;
-			clickedStatus = true;
-
-			// Анімація інших тільки якщо ID збігається
-			for (let i = column.blocks.length - 2; i >= 0; i--) {
-				const block = column.blocks[i];
-				if (block.id === targetId) {
-					block.emotionAnimation.visible = true;
-					block.emotionAnimation.play();
-					block.auraSprite.visible = true;
-				} else {
-					break; // перериваємо, якщо зустріли інший ID
-				}
+			if (lastClickedColumn === clickedColumn) {
+				console.log('clicked the same object');
+				clickedColumn.disactivateBlocks();
+			} else {
+				console.log('clicked a different object');
+				lastClickedColumn = clickedColumn;
 			}
+		}
+
+
+		column.on('pointerdown', (event) => {
+
+		onColumnClick(event);
+			
+			if (column.blocks.length <= 0) return;
+
+				const lastBlocksElement = column.blocks[column.blocks.length - 1];
+				const targetId = lastBlocksElement.id;
+
+				// Анімація тільки для останнього (як базова)
+				lastBlocksElement.emotionAnimation.visible = true;
+				lastBlocksElement.emotionAnimation.play();
+				lastBlocksElement.auraSprite.visible = true;
+				lastBlocksElement.visible = true;
+				clickedStatus = true;
+
+				// Анімація інших тільки якщо ID збігається
+				for (let i = column.blocks.length - 2; i >= 0; i--) {
+					const block = column.blocks[i];
+					if (block.id === targetId) {
+						block.emotionAnimation.visible = true;
+						block.emotionAnimation.play();
+						block.auraSprite.visible = true;
+					} else {
+						break; // перериваємо, якщо зустріли інший ID
+					}
+				}
 		});
 	};
 })();

@@ -13,4 +13,11 @@ export class Column extends Container{
  
         this.addChild(containerSprite);
     }
+    disactivateBlocks() {
+        this.blocks.forEach((block) => {
+            block.emotionAnimation.visible = false;
+            block.auraSprite.visible = false;
+            console.log('WORKED')
+        });
+    }
 }

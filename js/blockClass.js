@@ -24,6 +24,8 @@ export class Block extends Container{
         this.emotionAnimation.visible = false;
         this.emotionAnimation.loop = false;
 
+
+
         this.addChild(this.auraSprite);
         this.addChild(this.blockSprite);
         this.addChild(this.startEmotionSprite);
