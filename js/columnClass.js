@@ -10,6 +10,7 @@ export class Column extends Container{
         containerSprite.anchor.set(0.5);
 
         this.blocks = [];
+        this.isActive = false;
  
         this.addChild(containerSprite);
     }
@@ -17,7 +18,8 @@ export class Column extends Container{
         this.blocks.forEach((block) => {
             block.emotionAnimation.visible = false;
             block.auraSprite.visible = false;
-            console.log('WORKED')
+            // console.log('WORKED')
         });
     }
+    
 }
